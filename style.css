@@ -9,6 +9,7 @@ html, body {
     /* padding: 0; */
     overflow-x: hidden;
     font-family: Arial, Helvetica, sans-serif;
+    min-height: 100%;
 }  
 
 body{
@@ -23,10 +24,12 @@ nav{
     font-weight: 600;
 }
 
+
 li img{
     position: relative;
     top: -16px;
     height: var(--nav-height);
+    display: block;
 }
 
 li a{
@@ -51,6 +54,7 @@ nav ul li{
 }
 
 
+
 .search{
     text-align: center;
     position: absolute;
@@ -64,13 +68,14 @@ nav ul li{
     
 }
 .search::after{
-    content: "MMMMMMMMMMMM";
-    color: rgba(255,255,255,0);
+    content: "MMMMMMMMMMMM"; /* this is a hack to make the search bar longer to look usefull*/
+    color: rgba(255,255,255,0); /* white, but make it invisible.*/
 }
 
 header img{
     width: 100%;
-    max-height: 300px;
+    height: 300px;
+    display: block;
 }
 
 header h1{
@@ -83,8 +88,17 @@ header h1{
 }
 
 main{
+    height: inherit;
     margin: 25px;
     align-items: center;
+}
+
+main::after{
+    content: "";
+    display: table;
+    clear: both;
+/* I need this otherwise the footer is 789px and the main is 0px
+weird workaround to fix spacing  */
 }
 
 main section{
@@ -94,6 +108,7 @@ main section{
     padding: 2%;
     height: 350px;
     margin: 2%;
+    /* 3 x (29.3 + 2 + 2) = 99.9% the other 0.1% is lost in scaling */
 }
 
 section img {
@@ -101,7 +116,8 @@ section img {
     height: 100%;
 }
 
-section:has(img) {
+section:has(img) { /* Checks to see if a section has an image in it, 
+    doesnt work on firefox, so we have a relavent implication */
     border: 2px solid #000;
 }
 
@@ -115,4 +131,16 @@ main p {
 
 #row{
     display: flex;
+}
+
+footer{
+    width: 100%;
+    background: var(--blue);
+    height: 200px;
+    display: flex;
+}
+
+footer div{
+    float: left;
+    margin-left: 70px;
 }
