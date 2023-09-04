@@ -13,6 +13,7 @@ html, body {
     min-height: 100%;
     user-select: none;
     scroll-behavior: smooth;
+    background: #eee6e6;
 }  
 
 body{
@@ -148,13 +149,11 @@ main section{
 
 section img {
     width: 100%;
-    height: 100%;
-}
-
-section:has(img) { /* Checks to see if a section has an image in it, 
-    doesnt work on firefox, so we have a relavent implication */
+    max-height: 350px;
+    aspect-ratio: auto;
     border: 5px solid var(--blue);
 }
+
 
 main h2{
     font-size: 2.75em;
