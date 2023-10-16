@@ -201,6 +201,10 @@ ul{
     list-style: none;
 }
 
+ul li a:hover{
+    color: #b6cfdd;
+}
+
 #school{
     float: right;
     max-height: 150px;
